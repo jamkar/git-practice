@@ -1,10 +1,10 @@
 import './ExpenseForm.css';
 import { useState } from 'react';
 
-function ExpenseForm() {
-  const [title, setTitle] = useState('');
-  const [amount, setAmount] = useState('');
-  const [date, setDate] = useState('');
+function ExpenseForm(props) {
+  // const [title, setTitle] = useState('');
+  // const [amount, setAmount] = useState('');
+  // const [date, setDate] = useState('');
 
   const [userInput, setUserInput] = useState({
     title: '',
@@ -14,10 +14,12 @@ function ExpenseForm() {
 
   const titleChangeHandler = (e) => {
     // setTitle(e.target.value);
+
     // setUserInput({
     //   ...userInput,
     //   title: e.target.value
     // })
+    
     setUserInput((prevState) => {
       return {
         ...prevState,
@@ -28,10 +30,12 @@ function ExpenseForm() {
 
   const amountChangeHandler = (e) => {
     // setAmount(e.target.value);
+
     // setUserInput({
     //   ...userInput,
     //   amount: e.target.value
     // })
+
     setUserInput((prevState) => {
       return {
         ...prevState,
@@ -42,10 +46,12 @@ function ExpenseForm() {
 
   const dateChangeHandler = (e) => {
     // setDate(e.target.value);
+
     // setUserInput({
     //   ...userInput,
     //   date: e.target.value
     // })
+
     setUserInput((prevState) => {
       return {
         ...prevState,
@@ -62,7 +68,10 @@ function ExpenseForm() {
       date: new Date(userInput.date)
     }
 
+    console.log('In ExpenseForm.js');
     console.log(expenseData);
+
+    props.onSaveExpenseData(expenseData);
 
     setUserInput({
       title: '',

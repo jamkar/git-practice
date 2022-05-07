@@ -2,7 +2,12 @@ import React from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
-const App = () => {
+function App() {
+  const saveExpenseDataHandler = (expenseData) => {
+    console.log('In App.js');
+    console.log(expenseData);
+  };
+
   const expenses = [
     {
       id: 'e1',
@@ -33,7 +38,7 @@ const App = () => {
 
   return (
     <div>
-      <NewExpense />
+      <NewExpense onSaveExpenseData={saveExpenseDataHandler} />
       <Expenses items={expenses} />
     </div>
   );
